@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Employee, Course, UserContract
+from .models import Employee, Course, UserContract, About
 
 
 @admin.register(Employee)
@@ -15,3 +15,8 @@ class CourseAdmin(admin.ModelAdmin):
 @admin.register(UserContract)
 class UserContractAdmin(admin.ModelAdmin):
     list_display = ['user', 'address']
+
+
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ['image']
