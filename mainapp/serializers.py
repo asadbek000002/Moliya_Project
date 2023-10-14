@@ -17,7 +17,7 @@ class CourseSerializer(serializers.ModelSerializer):
         
 class AboutSerializer(serializers.ModelSerializer):
     class Meta:
-        modul = About
+        model = About
         fields = '__all__'
         
         
