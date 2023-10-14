@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .serializers import EmployeeSerializer, CourseSerializer, AboutSerializer, NewslatterSerializer
-from .models import Employee, Course, About, Newslatter
+from .serializers import EmployeeSerializer, CourseSerializer, AboutSerializer, NewslatterSerializer, ResultSerializer
+from .models import Employee, Course, About, Newslatter, Result
 
 
 
@@ -27,3 +27,7 @@ class NewslatterList(generics.ListAPIView):
 class BlogList(generics.ListAPIView):
     queryset = Newslatter.objects.filter(post_type=Newslatter.Status.BLOG)
     serializer_class = NewslatterSerializer
+    
+class ResultList(generics.ListAPIView):
+    queryset = Result.objects.all()
+    serializer_class = ResultSerializer

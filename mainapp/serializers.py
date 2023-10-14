@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Employee, Course, About, Newslatter
+from .models import Employee, Course, About, Newslatter, Result
 from .views import*
 
 
@@ -24,4 +24,10 @@ class AboutSerializer(serializers.ModelSerializer):
 class NewslatterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Newslatter
+        fields = '__all__'
+        
+
+class ResultSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Result
         fields = '__all__'

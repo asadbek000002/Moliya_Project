@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Employee, Course, UserContract, About, Newslatter, PaymentCost
+from .models import Employee, Course, UserContract, About, Newslatter, PaymentCost, Result
 
 
 @admin.register(Employee)
@@ -37,3 +37,9 @@ class PaymentCostAdmin(admin.ModelAdmin):
 @admin.register(Newslatter)
 class NewslatterAdmin(admin.ModelAdmin):
     list_display = ['title', 'images', 'description', 'created', 'post_type', 'choose']
+    
+
+
+@admin.register(Result)
+class ResultAdmin(admin.ModelAdmin):
+    list_display = ['name', 'last_name', 'image', 'time_of_studied', 'degree']
