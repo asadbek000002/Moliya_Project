@@ -12,3 +12,4 @@ PyJWT==2.8.0
 pycparser==2.21
 cryptography==41.0.4
 cffi==1.16.0
+drf-yasg==1.21.7
