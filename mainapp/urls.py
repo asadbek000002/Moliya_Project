@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import EmployeeList, CourseListAPIView, NewslatterList, BlogList, AboutListAPIView, ResultList
+from .views import EmployeeList, CourseListAPIView, NewslatterList, BlogList, AboutListAPIView, ResultList, \
+UserContractOneList, UserContractTwoList, UserContractThreeList
 
 urlpatterns = [
     path('employee/', EmployeeList.as_view(), name='employee'),
@@ -8,4 +9,8 @@ urlpatterns = [
     path('blog/', BlogList.as_view()),
     path('about/', AboutListAPIView.as_view()),
     path('result/', ResultList.as_view()),
+    path('step/<pk>/', UserContractOneList.as_view()),
+    path('steptwo/<pk>', UserContractTwoList.as_view()),
+    path('stepthree/<pk>', UserContractThreeList.as_view()),
+
 ]

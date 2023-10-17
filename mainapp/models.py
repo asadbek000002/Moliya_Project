@@ -11,7 +11,7 @@ class Course(models.Model):
     continuity = models.CharField(max_length=50)
     number_of_people = models.IntegerField()
     course_program = models.TextField()
-    offer = models.ImageField(max_length=100)
+    offer = models.ImageField()
 
     def __str__(self):
         return self.name
@@ -24,11 +24,12 @@ class UserContract(models.Model):
     phone = models.CharField(max_length=14)
     passport = models.CharField(max_length=9)
     address = models.CharField(max_length=250)
-    offerta_agreement = models.BooleanField()
+    offerta_agreement = models.BooleanField(default=False)
     payment_image = models.ImageField(upload_to='mainapp/payment_images')
     transaction_id = models.CharField(max_length=250)
-    paid = models.BooleanField()
-    bolib_tolash = models.BooleanField()
+    paid = models.BooleanField(default=False)
+    bolib_tolash = models.BooleanField(default=False)
+    step = models.IntegerField(max_length=2, default=0)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
