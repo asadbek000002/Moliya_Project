@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-hy8=r#m9%kg8szmj8hi66bni7!ct+6wek2g61&0e3cb+t5f!mm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['d716-185-139-138-222.ngrok-free.app', 'localhost:3000', 'localhost:8000', '127.0.0.1']
 
 
 # Application definition
@@ -45,12 +45,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'rest_framework_simplejwt',
+    "corsheaders",
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -146,3 +148,72 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(hours=24),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
 }
+
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-custom-header',  # Add your custom header here
+    'x-requested-with',
+]
+
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = [
+    'https://d716-185-139-138-222.ngrok-free.app',
+    'https://localhost:3000',
+    'http://localhost:3000',
+    'https://localhost:8080',
+    'http://localhost:8080',
+    'https://localhost:8000',
+    'http://localhost:8000',
+    'https://islombekorifov.uz',
+    'http://islombekorifov.uz',
+    'https://bozorboy.vercel.app',
+    'http://bozorboy.vercel.app',
+    'http://vercel.app',
+    'https://vercell.app',
+    'http://54.168.60.63',
+]
+
+
+CORS_ALLOWED_ORIGINS = [
+    'https://d716-185-139-138-222.ngrok-free.app',
+    "https://bozorboy.vercel.app",
+    'https://localhost:3000',
+    'http://localhost:3000',
+    'https://localhost:8080',
+    'http://localhost:8080',
+    'https://localhost:8000',
+    'http://localhost:8000',
+    'https://islombekorifov.uz',
+    'http://islombekorifov.uz',
+    'https://bozorboy.vercel.app',
+    'http://bozorboy.vercel.app',
+    'http://vercel.app',
+    'https://vercell.app',
+    'http://54.168.60.63',
+
+]
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://d716-185-139-138-222.ngrok-free.app',
+    'https://islombekorifov.uz',
+    'http://islombekorifov.uz',
+    'https://bozorboy.vercel.app',
+    'http://bozorboy.vercel.app',
+    'http://54.168.60.63',
+    'https://localhost:3000',
+    'http://localhost:3000',
+    'http://vercel.app',
+    'https://vercell.app',
+
+]
